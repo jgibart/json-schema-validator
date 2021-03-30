@@ -6,7 +6,7 @@ https://json-schema.org/
 
 the function validateJson will throw if the input doesnt match the schema passed ( and thus pipeline will fail )
 
-# prerequisites : 
+## prerequisites : 
 
 install the shared library in jenkins
 
@@ -17,6 +17,16 @@ install the shared library in jenkins
 - Repository HTTPS URL  : https://github.com/jgibart/json-schema-validator.git
 - Version : main
 
+
+## caviats : 
+
+When input buffer is too big ( understand really huge, limit unknown but over  80K ) run fails saying
+```
+ERROR: Workspace has a .git repository, but it appears to be corrupt.
+hudson.plugins.git.GitException: Error performing git command: git rev-parse --is-inside-work-tree
+...
+Caused by: java.io.IOException: Cannot run program "git" (in directory "/var/jenkins_home/workspace/TestPipeline@libs/json_schema_validator"): error=7, Argument list too long
+```
 
 
 ## example pipeline : 
