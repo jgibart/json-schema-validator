@@ -1,6 +1,10 @@
 # json-schema-validator
 
-a way to check complex input
+a way to check complex input using a json schema
+
+https://json-schema.org/
+
+the function validateJson will throw if the input doesnt match the schema passed ( and thus pipeline will fail )
 
 # prerequisites : 
 
