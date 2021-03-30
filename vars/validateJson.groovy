@@ -20,31 +20,31 @@ def call(String payload, String schema) {
   try {
       schemaJsonNode = mapper.readTree(jsonFactory.createParser(schema))
   } catch (Exception e) {
-    print "invalid json in passed schema $schema"
+    echo "invalid json in passed schema $schema"
     throw new ProcessingException('Invalid json in passed schema.', e )
   }
   def jsonSchema = null
   try {
      jsonSchema =jsonSchemaFactory.getJsonSchema(schemaJsonNode)
   } catch (Exception e) {
-    print "not a valid json schema $schema"
+    echo "not a valid json schema $schema"
     throw new ProcessingException('not a valid json schema.', e )
   }
   def payloadJsonNode = null
   try {
       payloadJsonNode = mapper.readTree(jsonFactory.createParser(payload))
   } catch (Exception e) {
-    print "invalid json in payload $payload"
+    echo "invalid json in payload $payload"
     throw new ProcessingException('invalid json in payload.', e )
   }
   def report = jsonSchema.validate(payloadJsonNode)
   if ( !report.isSuccess() ) {
     for ( message in report ) {
-      print "$message"
+      echo "$message"
     }
     throw new ProcessingException('Failure validating Pulse payload against schema.')
   } else {
-    print 'Sucessfully validated payload against schema.'
+    echo 'Sucessfully validated payload against schema.'
   }
 }
 
