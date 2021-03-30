@@ -1,15 +1,14 @@
 
-@Grab(group='com.fasterxml.jackson.core', module='jackson-databind', version='2.8.8')
+@Grab(group='com.fasterxml.jackson.core', module='jackson-databind', version='2.11.4')
 import com.fasterxml.jackson.databind.ObjectMapper
 
-@Grab(group='com.fasterxml.jackson.core', module='core', version='2.6.1')
+@Grab(group='com.fasterxml.jackson.core', module='jackson-core', version='2.11.4')
 import com.fasterxml.jackson.core.JsonFactory
 
 @Grab(group='com.github.fge', module='json-schema-validator', version='2.2.5')
 import com.github.fge.jackson.JsonLoader
 import com.github.fge.jsonschema.core.exceptions.ProcessingException
 import com.github.fge.jsonschema.main.JsonSchemaFactory
-
 
  
 @NonCPS
